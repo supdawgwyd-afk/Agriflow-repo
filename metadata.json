@@ -1,0 +1,6 @@
+{
+  "name": "AgriFlow AI",
+  "description": "AI-powered agricultural supply-chain and procurement platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
