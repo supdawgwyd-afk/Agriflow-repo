@@ -31,7 +31,7 @@ logger = logging.getLogger("agriflow-ml-service")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Hugging Face Repository Information
-HF_REPO_ID = os.getenv("HF_REPO_ID", "ASUJAL123/agriflow-random-forest")
+HF_REPO_ID = os.getenv("HF_REPO_ID", "ASUJAL123/agriflow-random-forest-deployment")
 MODEL_FILENAME = os.getenv("MODEL_FILENAME", "agriflow_random_forest_demand.joblib")
 HF_DIRECT_URL = f"https://huggingface.co/{HF_REPO_ID}/resolve/main/{MODEL_FILENAME}"
 
@@ -53,7 +53,7 @@ model_source: str = "unloaded"
 # Model metadata from AGMARKNET training
 METADATA = {
     "model": "Random Forest Regressor",
-    "n_estimators": 300,
+    "n_estimators": 75,
     "max_depth": 15,
     "random_state": 42,
     "target": "next_month_market_activity",
@@ -339,7 +339,7 @@ def predict(req: PredictionRequest):
         return {
             "status": "success",
             "is_real_model": True,
-            "model": "Random Forest Regressor (300 estimators)",
+            "model": "Random Forest Regressor (75 estimators)",
             "model_source": model_source,
             "target": METADATA["target"],
             "target_description": METADATA["target_description"],
